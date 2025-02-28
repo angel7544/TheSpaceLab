@@ -1,58 +1,74 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { useInView } from "react-intersection-observer";
 import {
+  Plane,
+  MapPin,
   Satellite,
-  Map,
-  Compass,
+  Mountain,
+  Network,
+  TreePine,
   Database,
-  LineChart,
-  Camera,
+  Download,
 } from "lucide-react";
 
 const services = [
   {
-    icon: Satellite,
-    title: "Remote Sensing",
-    description:
-      "Satellite imagery analysis and interpretation for environmental monitoring",
-    image: "https://images.unsplash.com/photo-1508233620467-f79f1e317a05",
-  },
-  {
-    icon: Map,
-    title: "GIS Mapping",
-    description:
-      "Custom GIS solutions for spatial analysis and visualization",
-    image: "https://images.unsplash.com/photo-1599202889720-cd3c0833efa1",
-  },
-  {
-    icon: Compass,
+    icon: MapPin,
     title: "Land Surveying",
-    description:
-      "Precise land surveying services using advanced equipment",
-    image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828",
+    description: "Precise land surveying services using advanced GNSS and Total Station equipment",
   },
   {
     icon: Database,
-    title: "Data Management",
-    description:
-      "Comprehensive geospatial database design and management",
-    image: "https://images.unsplash.com/photo-1600010101590-fbc57640c470",
+    title: "GIS Mapping",
+    description: "Custom GIS solutions using QGIS, ArcGIS, and other advanced mapping tools",
   },
   {
-    icon: LineChart,
-    title: "Spatial Analysis",
-    description:
-      "Advanced spatial analysis and modeling services",
-    image: "https://images.unsplash.com/photo-1578924825042-31d14cf13c35",
+    icon: Satellite,
+    title: "Remote Sensing & Analysis",
+    description: "Satellite imagery analysis using Sentinel, Landsat, and advanced processing techniques",
   },
   {
-    icon: Camera,
-    title: "Aerial Photography",
-    description:
-      "High-resolution aerial imagery and photogrammetry",
-    image: "https://images.unsplash.com/photo-1529034502960-57f42a966080",
+    icon: Plane,
+    title: "Drone Surveys",
+    description: "UAV-based surveys for high-resolution mapping and 3D modeling",
   },
+  {
+    icon: Mountain,
+    title: "Topographic & Contour Mapping",
+    description: "Detailed terrain mapping and elevation analysis",
+  },
+  {
+    icon: Network,
+    title: "Utility Mapping",
+    description: "Comprehensive mapping of pipelines, powerlines, and infrastructure",
+  },
+  {
+    icon: TreePine,
+    title: "Environmental Monitoring",
+    description: "Environmental impact assessment and monitoring using geospatial data",
+  },
+  {
+    icon: Database,
+    title: "Custom GIS Solutions",
+    description: "Tailored GIS applications and database solutions",
+  },
+];
+
+const technologies = [
+  "QGIS",
+  "ArcGIS",
+  "Erdas Imagine",
+  "Google Earth",
+  "Sentinel",
+  "Landsat",
+  "LIDAR",
+  "UAV/Drones",
+  "GNSS",
+  "Total Station",
+  "Bhuvan",
+  "OpenStreetMap",
 ];
 
 export default function Services() {
@@ -77,7 +93,7 @@ export default function Services() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-16">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
@@ -85,11 +101,7 @@ export default function Services() {
               animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card className="overflow-hidden h-full">
-                <div
-                  className="h-48 bg-cover bg-center"
-                  style={{ backgroundImage: `url(${service.image})` }}
-                />
+              <Card className="h-full">
                 <CardContent className="p-6">
                   <div className="flex items-center gap-3 mb-4">
                     <service.icon className="h-6 w-6 text-primary" />
@@ -100,6 +112,38 @@ export default function Services() {
               </Card>
             </motion.div>
           ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="bg-card rounded-lg p-8 mb-8"
+        >
+          <h3 className="text-2xl font-semibold mb-6 text-center">Technologies & Tools</h3>
+          <div className="flex flex-wrap justify-center gap-4">
+            {technologies.map((tech) => (
+              <span
+                key={tech}
+                className="px-4 py-2 bg-accent rounded-full text-sm font-medium"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </motion.div>
+
+        <div className="text-center">
+          <Button
+            size="lg"
+            className="bg-primary hover:bg-primary/90"
+            onClick={() => {
+              // In a real implementation, this would download a PDF
+              alert("Download feature will be implemented");
+            }}
+          >
+            <Download className="mr-2 h-4 w-4" /> Download Brochure
+          </Button>
         </div>
       </div>
     </section>

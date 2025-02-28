@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/navbar";
 import Hero from "@/components/hero";
 import About from "@/components/about";
+import Team from "@/components/team";
+import Testimonials from "@/components/testimonials";
 import Services from "@/components/services";
 import Projects from "@/components/projects";
 import Gallery from "@/components/gallery";
@@ -19,7 +21,9 @@ export default function Home() {
       >
         <Hero />
         <About />
+        <Team />
         <Services />
+        <Testimonials />
         <Projects />
         <Gallery />
         <Contact />
