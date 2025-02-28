@@ -3,18 +3,19 @@ import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
 
 export default function Hero() {
+  // Use a background gradient instead of an image for better performance and reliability
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       <div
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 bg-gradient-to-br from-primary/90 via-primary/70 to-primary/50"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1446776653964-20c1d3a81b06')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          filter: "brightness(0.3)",
+          backgroundImage: `radial-gradient(circle at 50% 50%, 
+            rgba(0, 0, 0, 0.5) 0%, 
+            rgba(0, 0, 0, 0.7) 100%
+          )`,
         }}
       />
-      
+
       <div className="container mx-auto px-4 z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -22,7 +23,7 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
           className="text-center"
         >
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-100 to-white">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
             Remote Sensing & GIS Solutions
           </h1>
           <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
@@ -30,7 +31,7 @@ export default function Hero() {
           </p>
           <Button
             size="lg"
-            className="bg-primary hover:bg-primary/90"
+            className="bg-white text-primary hover:bg-white/90"
             onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
           >
             Explore Our Services
