@@ -7,6 +7,8 @@ import Testimonials from "@/components/testimonials";
 import Services from "@/components/services";
 import Projects from "@/components/projects";
 import Gallery from "@/components/gallery";
+import Blog from "@/components/blog";
+import Careers from "@/components/careers";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
 
@@ -26,6 +28,8 @@ export default function Home() {
         <Testimonials />
         <Projects />
         <Gallery />
+        <Blog />
+        <Careers />
         <Contact />
       </motion.main>
       <Footer />
